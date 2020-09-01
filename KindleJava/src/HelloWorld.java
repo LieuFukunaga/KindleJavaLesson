@@ -36,6 +36,15 @@ public class HelloWorld {
 		System.out.println(flagT || flagF);        // AND
 		System.out.println(flagT && flagF);   // OR
 		System.out.println(!(flagT));               // NOT 単項演算子
+		
+		
+		String[] names = { "John", "Kate", "Bob", };
+		System.out.println(names[1]);
+		names[1] = "Jane";
+		System.out.println(names[1]);
+		// names[3] = "Mary";                        // java.lang.ArrayIndexOutOfBoundsException
+		// System.out.println(names[3]);        // Ruby, PHPは配列の要素数をあとから変更できるがJavaは変更できない
+		
 	}
 
 }
