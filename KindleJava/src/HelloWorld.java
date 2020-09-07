@@ -38,6 +38,8 @@ public class HelloWorld {
 		System.out.println(!(flagT));               // NOT 単項演算子
 		
 		
+		
+		// 配列
 		String[] names = { "John", "Kate", "Bob", };
 		System.out.println(names[1]);
 		names[1] = "Jane";
@@ -45,6 +47,32 @@ public class HelloWorld {
 		// names[3] = "Mary";                        // java.lang.ArrayIndexOutOfBoundsException
 		// System.out.println(names[3]);        // Ruby, PHPは配列の要素数をあとから変更できるがJavaは変更できない
 		
-	}
+		
+		
+		// ビット演算子
+		int number = 0x12345678;
+		int lower = number & 0x0000ffff;
+		System.out.printf("lower = %x\n", lower);
+//		System.out.printf("lower = %08x\n", lower);              // ０埋め, 最小８桁, 16進数表示, 改行
+		int heigher = number >> 16;
+		System.out.printf("heigher = %x\n", heigher);
+		
+		int numDec = 127;
+		// Decimal Numberへの変換
+		int numBin = Integer.parseInt("01111111", 2);
+		int numOct = 0177;
+		int numHex = 0x7f;
+		System.out.println(numDec);
+		System.out.println(numBin);
+		System.out.println(numOct);
+		System.out.println(numHex);
 
+		
+		int i = 127;
+		System.out.println("１０進数：" + i);                                            // Decimal Number
+		System.out.println("２進数：" + Integer.toBinaryString(i));          // Decimal Number -> Binary Number
+		System.out.println("８進数：" + Integer.toOctalString(i));           // Decimal Number -> Octal Number
+		System.out.println("１６進数：" + Integer.toHexString(i));         // Decimal Number -> Hexadecimal number
+	}
 }
+
