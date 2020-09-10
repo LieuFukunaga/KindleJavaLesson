@@ -1,3 +1,7 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+
 /*
  * 同一パッケージ内のクラスにはクラス名のみでアクセス可能
  * 同一パッケージ内のクラスに対するimport文はエラーの原因となる
@@ -8,6 +12,24 @@ public class HelloWorld {
 	public static void main(String[] args) {
 		System.out.println("Hello World Java");
 		
+		// 配列
+//		String[] names = { "John", "Kate", "Bob", };
+//		System.out.println(names[1]);
+//		names[1] = "Jane";
+//		System.out.println(names[1]);
+		// names[3] = "Mary";                        // java.lang.ArrayIndexOutOfBoundsException
+		// System.out.println(names[3]);        // Ruby, PHPは配列の要素数をあとから変更できるがJavaは変更できない
+		
+		
+		// インスタンス生成
+		KindleSample sample1 = new KindleSample();
+		sample1.sayHello();
+		// ゲッター、セッター
+		sample1.setSampleText("This is sample text");
+		System.out.println(sample1.getSampleText());
+
+		
+		// 演算子
 		int numberA;
 		numberA = 10;
 		int numberB = 10;
@@ -33,17 +55,6 @@ public class HelloWorld {
 		System.out.println(flagT || flagF);        // AND
 		System.out.println(flagT && flagF);   // OR
 		System.out.println(!(flagT));               // NOT 単項演算子
-		
-		
-		
-		// 配列
-		String[] names = { "John", "Kate", "Bob", };
-		System.out.println(names[1]);
-		names[1] = "Jane";
-		System.out.println(names[1]);
-		// names[3] = "Mary";                        // java.lang.ArrayIndexOutOfBoundsException
-		// System.out.println(names[3]);        // Ruby, PHPは配列の要素数をあとから変更できるがJavaは変更できない
-		
 		
 		
 		// ビット演算子
@@ -76,12 +87,54 @@ public class HelloWorld {
 		System.out.println("１６進数：" + Integer.toHexString(i));         // Decimal Number -> Hexadecimal number
 		
 		
-		// インスタンス生成
-		KindleSample sample1 = new KindleSample();
-		sample1.sayHello();
-		// ゲッター、セッター
-		sample1.setSampleText("This is sample text");
-		System.out.println(sample1.getSampleText());
+		// 制御構文
+		// 現在時刻の秒数が奇数か偶数かを判定
+		int nowSec = LocalDateTime.now().getSecond();
+		
+		if (nowSec % 2 == 0) {
+			System.out.println(nowSec + " は偶数です");
+		} else {
+			System.out.println(nowSec + " は奇数です");			
+		}
+		
+		
+		// 現在の日付から月数を取り出し、季節を判定する
+		int nowMonth = LocalDate.now().getMonthValue();
+		
+		if (3 <= nowMonth && nowMonth <= 5) {
+			System.out.println(nowMonth + "月は春です");
+		} else if (6 <= nowMonth && nowMonth <= 8) {
+			System.out.println(nowMonth + "月は夏です");			
+		} else if (9 <= nowMonth && nowMonth <= 11) {
+			System.out.println(nowMonth + "月は秋です");			
+		} else  {
+			System.out.println(nowMonth + "月は冬です");
+		}
+		
+		
+		// enum型の変数に対するswitch文の例
+		Month month = LocalDateTime.now().getMonth();
+		
+		switch (month) {
+			case MARCH:
+			case APRIL:
+			case MAY:
+				System.out.println(month + " is Spring.");
+				break;
+			case JUNE:
+			case JULY:
+			case AUGUST:
+				System.out.println(month + " is Summer.");
+				break;
+			case SEPTEMBER:
+			case OCTOBER:
+			case NOVEMBER:
+				System.out.println(month + " is Autumn.");
+				break;
+			default:
+				System.out.println(month + " is Winter.");
+				break;
+		}
 	}
 }
 
