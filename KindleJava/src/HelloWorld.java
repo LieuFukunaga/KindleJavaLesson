@@ -6,6 +6,31 @@
  * comments
  */
 
+class Sample {
+	private String sampleText;
+	private int sampleNumber;
+	
+	// ゲッター、セッター
+	public String getSampleText() {
+		return sampleText;
+	}
+	public void setSampleText(String sampleText) {
+		this.sampleText = sampleText;
+	}
+	public int getSampleNumber() {
+		return sampleNumber;
+	}
+	public void setSampleNumber(int sampleNumber) {
+		this.sampleNumber = sampleNumber;
+	}
+	
+	// クラスメソッド
+	public void sayHello() {
+		System.out.println("Hello");
+	}
+	
+}
+
 public class HelloWorld {
 
 	public static void main(String[] args) {
@@ -73,6 +98,14 @@ public class HelloWorld {
 		System.out.println("２進数：" + Integer.toBinaryString(i));          // Decimal Number -> Binary Number
 		System.out.println("８進数：" + Integer.toOctalString(i));           // Decimal Number -> Octal Number
 		System.out.println("１６進数：" + Integer.toHexString(i));         // Decimal Number -> Hexadecimal number
+		
+		
+		// インスタンス生成
+		Sample sample1 = new Sample();
+		sample1.sayHello();
+		// ゲッター、セッター
+		sample1.setSampleText("This is sample text");
+		System.out.println(sample1.getSampleText());
 	}
 }
 
