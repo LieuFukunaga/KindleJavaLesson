@@ -1,35 +1,7 @@
-// comment
-
 /*
- * comments
- * comments
- * comments
+ * 同一パッケージ内のクラスにはクラス名のみでアクセス可能
+ * 同一パッケージ内のクラスに対するimport文はエラーの原因となる
  */
-
-class Sample {
-	private String sampleText;
-	private int sampleNumber;
-	
-	// ゲッター、セッター
-	public String getSampleText() {
-		return sampleText;
-	}
-	public void setSampleText(String sampleText) {
-		this.sampleText = sampleText;
-	}
-	public int getSampleNumber() {
-		return sampleNumber;
-	}
-	public void setSampleNumber(int sampleNumber) {
-		this.sampleNumber = sampleNumber;
-	}
-	
-	// クラスメソッド
-	public void sayHello() {
-		System.out.println("Hello");
-	}
-	
-}
 
 public class HelloWorld {
 
@@ -75,6 +47,10 @@ public class HelloWorld {
 		
 		
 		// ビット演算子
+		// & (AND)            どちらも1なら1
+		// | (OR)                 どちらか1なら1
+		// !(NOT) もしくは~ 0は1に、1は0に
+		// ^(XOR)              どちらか片方だけ1なら1、どちらも0またはどちらも1なら0
 		int number = 0x12345678;
 		int lower = number & 0x0000ffff;
 		System.out.printf("lower = %x\n", lower);
@@ -101,7 +77,7 @@ public class HelloWorld {
 		
 		
 		// インスタンス生成
-		Sample sample1 = new Sample();
+		KindleSample sample1 = new KindleSample();
 		sample1.sayHello();
 		// ゲッター、セッター
 		sample1.setSampleText("This is sample text");
