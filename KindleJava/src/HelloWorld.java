@@ -1,6 +1,8 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.Scanner;
+
 
 /*
  * 同一パッケージ内のクラスにはクラス名のみでアクセス可能
@@ -19,14 +21,6 @@ public class HelloWorld {
 //		System.out.println(names[1]);
 		// names[3] = "Mary";                        // java.lang.ArrayIndexOutOfBoundsException
 		// System.out.println(names[3]);        // Ruby, PHPは配列の要素数をあとから変更できるがJavaは変更できない
-		
-		
-		// インスタンス生成
-		KindleSample sample1 = new KindleSample();
-		sample1.sayHello();
-		// ゲッター、セッター
-		sample1.setSampleText("This is sample text");
-		System.out.println(sample1.getSampleText());
 
 		
 		// 演算子
@@ -57,6 +51,9 @@ public class HelloWorld {
 		System.out.println(!(flagT));               // NOT 単項演算子
 		
 		
+		System.out.println("----------------------------------------");
+		
+		
 		// ビット演算子
 		// & (AND)            どちらも1なら1
 		// | (OR)                 どちらか1なら1
@@ -85,6 +82,9 @@ public class HelloWorld {
 		System.out.println("２進数：" + Integer.toBinaryString(i));          // Decimal Number -> Binary Number
 		System.out.println("８進数：" + Integer.toOctalString(i));           // Decimal Number -> Octal Number
 		System.out.println("１６進数：" + Integer.toHexString(i));         // Decimal Number -> Hexadecimal number
+
+		
+		System.out.println("----------------------------------------");
 		
 		
 		// 制御構文
@@ -135,6 +135,62 @@ public class HelloWorld {
 				System.out.println(month + " is Winter.");
 				break;
 		}
+
+		
+		System.out.println("----------------------------------------");
+		
+		
+		/*
+		 *変数初期化
+		 *条件
+		 *繰り返し処理（Trueの場合）
+		 *変数更新
+		 */
+		int[] numArray = { 1, 1, 2, 3, 5, 8, 13, 21 };
+		int sumA = 0;
+		for (int j = 0; j < numArray.length; j++) {
+			System.out.println(j + 1 +  "回目：" + numArray[j]);
+			sumA +=numArray[ j];
+			System.out.println(j + 1 + "回目の合計：" + sumA);
+		}
+		
+		System.out.println("----------------------------------------");
+		
+		// 配列やコレクションの要素を1つずつ取り出して処理
+		int k = 1;
+		int sumB = 0;
+		for (int tmpNum : numArray) {
+			System.out.println(k + "回目: " + tmpNum);
+			sumB += tmpNum;
+			System.out.println(k + "回目の合計: " + sumB);
+			k++;
+		}
+		
+		
+		Scanner in = new Scanner(System.in);
+		System.out.println("パスワードを入力してください");
+		String pswd = in.nextLine();
+		
+		// 条件に一致する間、処理を繰り返す
+		// whileとdo...whileの違いは「条件判定を行うタイミング」
+		// 文字列（参照型）同士の比較はStringクラスのequalsメソッドを使う
+		while(!pswd.equals("abc")) {
+			System.out.println("パスワードが違います。正しいパスワードを入力してください");
+			pswd = in.nextLine();
+		}
+		
+		System.out.println("OK!");
+		
+		// 条件をtrueにして無限にループさせ、break文で抜け出す書き方
+//		
+//		while (true) {
+//			if (pswd.equals("abc")) {
+//				break;
+//			}
+//			System.out.println("パスワードが違います。正しいパスワードを入力してください");
+//			pswd = in.nextLine();
+//		}
+		
 	}
 }
 
