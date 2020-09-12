@@ -10,6 +10,7 @@ import java.time.Month;
 
 public class HelloWorld {
 
+	// Javaのプログラムを実行した際に呼び出されるプログラムの起点となるメソッド
 	public static void main(String[] args) {
 		System.out.println("Hello World Java");
 		
@@ -170,18 +171,24 @@ public class HelloWorld {
 		
 		
 		// while文
-		LoopTest loopTest = new LoopTest();
-		loopTest.whileMethod();
-		loopTest.whileBreakMethod();
+//		LoopTest loopTest = new LoopTest();
+//		loopTest.whileMethod();
+//		loopTest.whileBreakMethod();
 
 		
 		System.out.println("----------------------------------------");
 		
 		
 		// オーバーロード
-		Student student1 = new Student("Taguchi", 30);
-		student1.overloadTest();
-		student1.overloadTest("（引数あり）");
+		Student student1 = new Student("Taguchi");
+		Student student2 = new Student("Deguchi", 30);
+		
+		// 引数が異なるコンストラクタをオーバーロード
+		System.out.println("Student No.1 is " + student1.getName() + ". This student's Score is " + student1.getScore() + ".");	
+		System.out.println("Student No.2 is " + student2.getName() + ". This student's Score is " + student2.getScore() + ".");
+		
+//		student1.overloadTest();
+//		student1.overloadTest("（引数あり）");
 		
 	}
 }
