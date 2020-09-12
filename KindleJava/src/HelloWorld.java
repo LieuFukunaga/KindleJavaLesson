@@ -1,7 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
-import java.util.Scanner;
 
 
 /*
@@ -165,31 +164,24 @@ public class HelloWorld {
 			System.out.println(k + "回目の合計: " + sumB);
 			k++;
 		}
+
+		
+		System.out.println("----------------------------------------");
 		
 		
-		Scanner in = new Scanner(System.in);
-		System.out.println("パスワードを入力してください");
-		String pswd = in.nextLine();
+		// while文
+		LoopTest loopTest = new LoopTest();
+		loopTest.whileMethod();
+		loopTest.whileBreakMethod();
+
 		
-		// 条件に一致する間、処理を繰り返す
-		// whileとdo...whileの違いは「条件判定を行うタイミング」
-		// 文字列（参照型）同士の比較はStringクラスのequalsメソッドを使う
-		while(!pswd.equals("abc")) {
-			System.out.println("パスワードが違います。正しいパスワードを入力してください");
-			pswd = in.nextLine();
-		}
+		System.out.println("----------------------------------------");
 		
-		System.out.println("OK!");
 		
-		// 条件をtrueにして無限にループさせ、break文で抜け出す書き方
-//		
-//		while (true) {
-//			if (pswd.equals("abc")) {
-//				break;
-//			}
-//			System.out.println("パスワードが違います。正しいパスワードを入力してください");
-//			pswd = in.nextLine();
-//		}
+		// オーバーロード
+		Student student1 = new Student("Taguchi", 30);
+		student1.overloadTest();
+		student1.overloadTest("（引数あり）");
 		
 	}
 }
