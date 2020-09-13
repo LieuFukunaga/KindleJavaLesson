@@ -190,6 +190,13 @@ public class HelloWorld {
 //		student1.overloadTest();
 //		student1.overloadTest("（引数あり）");
 		
+		
+		// データ型
+		long longNum1 = 123_456_789_101_213L;
+		long longNum2 = 1_234_567_891_011_121_314L;
+		System.out.println(longNum1);
+		System.out.println(longNum2);
+		System.out.println(longNum1 + longNum2);
 	}
 }
 
