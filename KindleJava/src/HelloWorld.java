@@ -1,18 +1,27 @@
+import java.util.Date;
+import java.util.Calendar;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 
 
 /*
- * 同一パッケージ内のクラスにはクラス名のみでアクセス可能
+ * 同一パッケージ内のクラスには「クラス名」のみでアクセス可能
  * 同一パッケージ内のクラスに対するimport文はエラーの原因となる
  */
 
 public class HelloWorld {
 
-	// Javaのプログラムを実行した際に呼び出されるプログラムの起点となるメソッド
+	// Javaプログラムを実行した際に呼び出されるメソッド。プログラムの起点となる。
 	public static void main(String[] args) {
-		System.out.println("Hello World Java");
+		
+		String msg = "Hello";
+		msg += " World. ";
+		Date today = new Date();
+		Calendar calendar = Calendar.getInstance();
+//		System.out.println(msg + "The current time is " + today.toString() +  ".");
+		System.out.println(msg + "The current time is " + calendar.getTime().toString() +  ".");
+		
 		
 		// 配列
 //		String[] names = { "John", "Kate", "Bob", };
@@ -22,6 +31,10 @@ public class HelloWorld {
 		// names[3] = "Mary";                        // java.lang.ArrayIndexOutOfBoundsException
 		// System.out.println(names[3]);        // Ruby, PHPは配列の要素数をあとから変更できるがJavaは変更できない
 
+
+		
+		System.out.println("----------------------------------------");
+		
 		
 		// 演算子
 		int numberA;
@@ -31,14 +44,14 @@ public class HelloWorld {
 		int numberC = numberA + numberB;                                                   // + は「算術演算子」であり「二項演算子」
 		System.out.println("numberA + numberB  is " + numberC);
 		
-		System.out.println("numberA is 10. --numberA is " + --numberA);     // 前置演算
-		System.out.println("numberB is 10. numberB-- is " + numberB--);     // 後置演算
+		System.out.println("numberA is 10. --numberA is " + --numberA);     // 前置演算：先に計算し、その結果が用いられる。
+		System.out.println("numberB is 10. numberB-- is " + numberB--);      // 後置演算：現在の値を使用してから計算される。
 		
 		
 		int numberD = 20;
 		int numberE = 30;
 		boolean result = numberD < numberE;
-		System.out.println("Is " + numberD + " smaller than " + 30 + "? This comparision is " + result +".");    // 文字列結合演算子は他のどんなデータ型とも文字列結合できるという特性を持っている
+		System.out.println("Is " + numberD + " smaller than " + 30 + "? This comparision is " + result +".");    // 文字列結合演算子は他のどんなデータ型とも文字列結合できる。
 		
 		int numberF = 29;
 		String tmp = numberF > 30 ? "elder" : "still young";        // 条件演算子 | 三項演算子
@@ -46,23 +59,37 @@ public class HelloWorld {
 		
 		boolean flagT = true;
 		boolean flagF = false;
-		System.out.println(flagT || flagF);        // AND
-		System.out.println(flagT && flagF);   // OR
-		System.out.println(!(flagT));               // NOT 単項演算子
+		System.out.println(flagT || flagF);        // True OR False    => True
+		System.out.println(flagT && flagF);    // True AND False => False
+		System.out.println(!(flagT));                 // NOT True          => False
 		
-		
+
 		System.out.println("----------------------------------------");
 		
 		
 		// ビット演算子
-		// & (AND)            どちらも1なら1
-		// | (OR)                 どちらか1なら1
-		// !(NOT) もしくは~ 0は1に、1は0に
-		// ^(XOR)              どちらか片方だけ1なら1、どちらも0またはどちらも1なら0
+		// & (AND)               : どちらも1なら1
+		// | (OR)                    : どちらか1なら1
+		// ! (NOT) もしくは ~  : 0は1に、1は0に
+		// ^(XOR)                 : どちらか片方だけ1なら1、どちらも0またはどちらも1なら0
+		//                              : 同じだったら0、違ったら1
+		
+	
+		// byte型  : 8ビット     2^8 = 256                   => -128 ~ 127
+		// short型 : 16ビット   2 ^16 = 65536            => -32768 ~ 32767
+		// int型     : 32ビット   2^32 = 4294967296   => -2147483648 ~ 2147483647 
+		// long型  : 64ビット   2^64 = （省略）        => 	-9223372036854775808 ~ 9223372036854775807
+		
+		
+		// 0 => 数字であることのアピール
+		// x => Hexadecimal（１６進数）
+		
+		
 		int number = 0x12345678;
-		int lower = number & 0x0000ffff;
+		int lower = number & 0x0000ffff;                               // 32ビットの値から下位16ビットを取り出す。0xf => 1111
 		System.out.printf("lower = %x\n", lower);
 //		System.out.printf("lower = %08x\n", lower);              // ０埋め, 最小８桁, 16進数表示, 改行
+		
 		int heigher = number >> 16;
 		System.out.printf("heigher = %x\n", heigher);
 		
