@@ -1,4 +1,3 @@
-import java.util.Date;
 import java.util.Calendar;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -17,11 +16,10 @@ public class HelloWorld {
 		
 		String msg = "Hello";
 		msg += " World. ";
-		Date today = new Date();
 		Calendar calendar = Calendar.getInstance();
-//		System.out.println(msg + "The current time is " + today.toString() +  ".");
 		System.out.println(msg + "The current time is " + calendar.getTime().toString() +  ".");
-		
+		DateTimeTest.printDt();
+		DateTimeTest.compareDt();
 		
 		// 配列
 //		String[] names = { "John", "Kate", "Bob", };
