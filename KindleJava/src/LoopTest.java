@@ -14,8 +14,7 @@ public class LoopTest {
 			System.out.println("パスワードが違います。正しいパスワードを入力してください");
 			pswd = in.nextLine();
 		}
-		
-		
+		in.close();
 		System.out.println("OK!");		
 	}
 	
@@ -33,6 +32,7 @@ public class LoopTest {
 			System.out.println("パスワードが違います。正しいパスワードを入力してください");
 			inputPswd = input.nextLine();
 		}
+		input.close();
 	}
 	
 }
