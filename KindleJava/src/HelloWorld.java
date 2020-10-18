@@ -1,4 +1,6 @@
+import java.util.Date;
 import java.util.Calendar;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -16,10 +18,24 @@ public class HelloWorld {
 		
 		String msg = "Hello";
 		msg += " World. ";
-		Calendar calendar = Calendar.getInstance();
-		System.out.println(msg + "The current time is " + calendar.getTime().toString() +  ".");
-		DateTimeTest.printDt();
-		DateTimeTest.compareDt();
+		System.out.println(msg);
+		
+		
+		System.out.println("----------------------------------------");
+	
+		
+		Date dt = new Date();
+		DateCalendarTest.printDt(dt);
+		DateCalendarTest.compareDt(dt);
+		
+		
+		System.out.println("----------------------------------------");
+		
+		
+		Calendar cal = Calendar.getInstance();
+		String[] months = {"JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER", "UNDECIMBER"};
+		String[] days = { "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"};
+		DateCalendarTest.printCal(cal, months, days);
 		
 		// 配列
 //		String[] names = { "John", "Kate", "Bob", };
@@ -30,7 +46,6 @@ public class HelloWorld {
 		// System.out.println(names[3]);        // Ruby, PHPは配列の要素数をあとから変更できるがJavaは変更できない
 
 
-		
 		System.out.println("----------------------------------------");
 		
 		
