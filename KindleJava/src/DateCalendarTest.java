@@ -36,12 +36,23 @@ public class DateCalendarTest {
 		}
 		System.out.println("What day of year is it today? => " + cal.get(Calendar.DAY_OF_YEAR) + ".");
 		System.out.println("What day of month is it today? => " + cal.get(Calendar.DAY_OF_MONTH) + ".");
-		System.out.println("What day is it today? => " + days[cal.get(Calendar.DAY_OF_WEEK)]  + ".");
+		System.out.println("What day is it today? => " + days[cal.get(Calendar.DAY_OF_WEEK) - 1]  + ".");
 		System.out.println("What day of week in month is it today? => " + cal.get(Calendar.DAY_OF_WEEK_IN_MONTH) + ".");
 		System.out.println("What week of year is it today? => " + cal.get(Calendar.WEEK_OF_YEAR) + ".");
 		System.out.println("What week of month is it today? => " + cal.get(Calendar.WEEK_OF_MONTH) + ".");
 		System.out.println("Print YEAR without constance => " + cal.get(1) );
+		cal.set(Calendar.YEAR, 2021);
+		System.out.println("set YEAR => " + getCalString(cal));
+		cal.set(3333, 11, 22);;
+		System.out.println("set YEAR, MONTH, DATE => " + getCalString(cal));
+		Calendar cal2 = Calendar.getInstance();
+		System.out.println("cal2 => " + getCalString(cal2));
 		
+	}
+	
+	public static String getCalString(Calendar tmpCal) {
+		// getメソッドの返り値：int型
+		return String.valueOf(tmpCal.get(Calendar.YEAR) + "/" + String.valueOf(tmpCal.get(Calendar.MONTH)) + "/" + String.valueOf(tmpCal.get(Calendar.DATE)));
 	}
 	
 }
