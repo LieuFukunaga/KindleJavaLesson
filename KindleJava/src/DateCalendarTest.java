@@ -12,9 +12,9 @@ public class DateCalendarTest {
 	
 	public static void compareDt(Date dt) {
 		Date dt2 = (Date)dt.clone();
-		System.out.println("Clone is after dt? => " +  dt2.after(dt));
-		System.out.println("Clone is before dt? => " +  dt2.before(dt));
-		System.out.println("Clone is equal to dt? => " +  dt2.equals(dt));
+		System.out.println("Is dt2 after dt? => " +  dt2.after(dt));
+		System.out.println("Is dt2 before dt? => " +  dt2.before(dt));
+		System.out.println("Is dt2 equal to dt? => " +  dt2.equals(dt));
 		System.out.println("Comparison between clone and dt : " +  dt2.compareTo(dt));
 	}
 	
@@ -23,6 +23,7 @@ public class DateCalendarTest {
 	// Calendarクラス用
 	public static void printCal(Calendar cal, String[] months, String[] days) {
 		System.out.println("What is the date today? => It's " + months[cal.get(Calendar.MONTH)] + " " + cal.get(Calendar.DATE) + ", " + cal.get(Calendar.YEAR) + "." );
+//		System.out.println("Calendar.MONTH => " + cal.get(Calendar.MONTH) + 1);        // 1月：０
 		switch (cal.get(Calendar.ERA)) {
 		case 0:
 			System.out.println("Before Centrury");
@@ -47,12 +48,19 @@ public class DateCalendarTest {
 		System.out.println("set YEAR, MONTH, DATE => " + getCalString(cal));
 		Calendar cal2 = Calendar.getInstance();
 		System.out.println("cal2 => " + getCalString(cal2));
+		boolean compareCal;
+		compareCal = cal.equals(cal2);
+		System.out.println("Is cal equal to cal2? => " + compareCal);
+		compareCal = cal.before(cal2);
+		System.out.println("Is cal before cal2? => " + compareCal);
+		comapreCal = cal.after(cal2);
+		System.out.println("Is cal after cal2? => " + compareCal);
 		
 	}
 	
 	public static String getCalString(Calendar tmpCal) {
 		// getメソッドの返り値：int型
-		return String.valueOf(tmpCal.get(Calendar.YEAR) + "/" + String.valueOf(tmpCal.get(Calendar.MONTH)) + "/" + String.valueOf(tmpCal.get(Calendar.DATE)));
+		return String.valueOf(tmpCal.get(Calendar.YEAR) + "/" + String.valueOf(tmpCal.get(Calendar.MONTH) + 1) + "/" + String.valueOf(tmpCal.get(Calendar.DATE)));
 	}
 	
 }
