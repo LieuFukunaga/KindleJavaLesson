@@ -42,18 +42,8 @@ public class DateCalendarTest {
 		System.out.println("cal2 => " + getCalString(cal2));
 		compareCal(cal, cal2);
 		cal.add(Calendar.MONTH, 1);
-		cal.setLenient(true);
-		cal.set(2020, 10, 45);
-		System.out.println("setLenient / true => " + getCalString(cal));
-		cal.setLenient(false);
-		cal.set(2020, 10, 45);
-		try {
-			System.out.println("setLenient / false => " + getCalString(cal));
-		} catch (Exception e) {
-			System.out.println("厳密な解釈をせずにありえない日付をセット＝＞エラー");
-		}
-		
-		
+		setInvalidCal(cal, 2020, 1, 100, true);
+		setInvalidCal(cal, 2020, 1, 100, false);
 	}
 	
 	
@@ -94,6 +84,24 @@ public class DateCalendarTest {
 		System.out.println("Is cal before cal2? => " + compCal);
 		compCal = cal.after(cal2);
 		System.out.println("Is cal after cal2? => " + compCal);
+	}
+	
+	public static void setInvalidCal(Calendar cal, int year, int month, int date,  boolean lenient) {
+//		if (lenient = true) {
+		if (lenient) {
+			cal.setLenient(lenient);
+			cal.set(year, month, date);
+			System.out.println("setLenient / true => " + getCalString(cal));			
+		} else {
+			cal.setLenient(lenient);
+			cal.set(year, month, date);
+			try {
+				System.out.println("setLenient / false => " + getCalString(cal));
+			} catch (Exception e) {
+				System.out.println("An error occurred because an invalid date is set without rigorous interpretation.");
+			}
+			
+		}
 	}
 	
 }
