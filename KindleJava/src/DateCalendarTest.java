@@ -43,7 +43,11 @@ public class DateCalendarTest {
 		compareCal(cal, cal2);
 		cal.add(Calendar.MONTH, 1);
 		setInvalidCal(cal, 2020, 1, 100, true);
+//		setInvalidCal(cal, -1, 1, 1, true);         // => 2/2/1
+//		setInvalidCal(cal, 2020, -1, 1, true);
 		setInvalidCal(cal, 2020, 1, 100, false);
+		cal.clear();
+		System.out.println("Clear a Calendar and set a default date=> " + getCalString(cal));
 	}
 	
 	
