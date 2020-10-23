@@ -1,26 +1,7 @@
-import java.util.Date;
 import java.util.Calendar;
 
-public class DateCalendarTest {
+public class CalendarTest {
 	
-	// Dateクラス用
-	public static void printDt(Date dt) {
-		Date dt2 = (Date)dt.clone();
-		System.out.println("origin : " + dt.toString());
-		System.out.println("clone : " + dt2.toString());
-	}
-	
-	public static void compareDt(Date dt) {
-		Date dt2 = (Date)dt.clone();
-		System.out.println("Is dt2 after dt? => " +  dt2.after(dt));
-		System.out.println("Is dt2 before dt? => " +  dt2.before(dt));
-		System.out.println("Is dt2 equal to dt? => " +  dt2.equals(dt));
-		System.out.println("Comparison between clone and dt : " +  dt2.compareTo(dt));
-	}
-	
-	
-	
-	// Calendarクラス用
 	public static void printCal(Calendar cal, String[] months, String[] days) {
 		System.out.println("What is the date today? => It's " + months[cal.get(Calendar.MONTH)] + " " + cal.get(Calendar.DATE) + ", " + cal.get(Calendar.YEAR) + "." );
 //		System.out.println("Calendar.MONTH => " + cal.get(Calendar.MONTH) + 1);        // 1月：０
@@ -51,6 +32,7 @@ public class DateCalendarTest {
 	}
 	
 	
+	// 目的：出力の切り出し
 	public static void ansCal(Calendar cal, String[] days) {
 		System.out.println("What day of year is it today? => " + cal.get(Calendar.DAY_OF_YEAR) + ".");
 		System.out.println("What day of month is it today? => " + cal.get(Calendar.DAY_OF_MONTH) + ".");
@@ -63,23 +45,28 @@ public class DateCalendarTest {
 	}
 
 	
+	// 目的：書式設定
 	public static String getCalString(Calendar tmpCal) {
 		// getメソッドの返り値：int型
 		return String.valueOf(tmpCal.get(Calendar.YEAR) + "/" + String.valueOf(tmpCal.get(Calendar.MONTH) + 1) + "/" + String.valueOf(tmpCal.get(Calendar.DATE)));
 	}
 	
 	
+	// 目的：日付設定（年のみ）
 	public static void setCal(Calendar cal, int year) {
 		cal.set(Calendar.YEAR, year);
 		System.out.println("set YEAR => " + getCalString(cal));
 	}
 	
+	
+	// 目的：日付設定（年、月、日） 
 	public static void setCal(Calendar cal, int year, int month, int date) {
 		cal.set(year, month, date);;
 		System.out.println("set YEAR, MONTH, DATE => " + getCalString(cal));
 	}
 	
 	
+	// 目的：日付を比較し結果を出力
 	public static void compareCal(Calendar cal, Calendar cal2) {
 		boolean compCal;
 		compCal = cal.equals(cal2);
@@ -90,6 +77,8 @@ public class DateCalendarTest {
 		System.out.println("Is cal after cal2? => " + compCal);
 	}
 	
+	
+	// 目的：無効な日付の設定、出力
 	public static void setInvalidCal(Calendar cal, int year, int month, int date,  boolean lenient) {
 //		if (lenient = true) {
 		if (lenient) {
@@ -107,5 +96,5 @@ public class DateCalendarTest {
 			
 		}
 	}
-	
+
 }

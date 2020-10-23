@@ -25,8 +25,8 @@ public class HelloWorld {
 	
 		
 		Date dt = new Date();
-		DateCalendarTest.printDt(dt);
-		DateCalendarTest.compareDt(dt);
+		DateTest.printDt(dt);
+		DateTest.compareDt(dt);
 		
 		
 		System.out.println("----------------------------------------");
@@ -35,7 +35,7 @@ public class HelloWorld {
 		Calendar cal = Calendar.getInstance();
 		String[] months = {"JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER", "UNDECIMBER"};
 		String[] days = { "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"};
-		DateCalendarTest.printCal(cal, months, days);
+		CalendarTest.printCal(cal, months, days);
 		
 		// 配列
 //		String[] names = { "John", "Kate", "Bob", };
